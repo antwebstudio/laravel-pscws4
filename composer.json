@@ -1,0 +1,21 @@
+{
+    "name": "mecyu/laravel-pscws4",
+    "description": "pscws4 for laravel",
+    "keywords": ["laravel", "pscws4"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mecyu",
+            "email": "649903137@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mecyu\\LaravelPscws4\\": "src"
+        }
+    }
+}

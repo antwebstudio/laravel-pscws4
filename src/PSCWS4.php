@@ -383,7 +383,13 @@ class PSCWS4
         $this->_off = $off;
 
         // sort it & return
-        $cmp_func = create_function('$a,$b', 'return ($b[\'weight\'] > $a[\'weight\'] ? 1 : -1);');
+		if (version_compare(PHP_VERSION, '7.2.0') < 0) {
+        	$cmp_func = create_function('$a,$b', 'return ($b[\'weight\'] > $a[\'weight\'] ? 1 : -1);');
+		} else {
+	        $cmp_func = function($a, $b) {
+	            return ($b['weight'] > $a['weight'] ? 1 : -1);
+	        };
+		}
         usort($list, $cmp_func);
         if (count($list) > $limit) $list = array_slice($list, 0, $limit);
 
